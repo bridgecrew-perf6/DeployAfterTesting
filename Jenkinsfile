@@ -11,5 +11,10 @@ pipeline {
         echo "${COMMIT_HASH}"
       }
     }
+    stage("Run REDIS server") {
+      steps {
+        sh "docker run -d --name redis-server redis || true"
+      }
+    }
   }
 }
