@@ -2,12 +2,13 @@ pipeline {
   agent any
   triggers {
     GenericTrigger(causeString: 'Generic Webhook Trigger', 
-                   genericVariables: [[key:'TAG', value: '$.release.tag_name'],
-                                      [key:'REMOVING', value: '$.head_commit.removed']])
+                   genericVariables: [[key:'COMMIT_HASH', value: '$.head_commit.id']])
   }
   stages {
-    stage("") {
-      steps
+    stage("Echo") {
+      steps {
+        echo COMMIT_HASH 
+      }
     }
   }
 }
