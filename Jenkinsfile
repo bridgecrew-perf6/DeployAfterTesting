@@ -18,7 +18,7 @@ pipeline {
     }
     stage("Set hash as commit") {
       steps {
-        sh """docker exec redis-server bash -c "set commit ${COMMIT_HASH}" """
+        sh """docker exec redis-server redis-cli -c "set commit ${COMMIT_HASH}" """
       }
     }
   }
