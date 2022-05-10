@@ -3,13 +3,11 @@ pipeline {
   triggers {
     GenericTrigger(causeString: 'Generic Webhook Trigger', 
                    genericVariables: [[key:'TAG', value: '$.release.tag_name'],
-                                      [key:'COMMIT_HASH', value: '$.']]) 
+                                      [key:'REMOVING', value: '$.head_commit.removed']])
   }
   stages {
     stage("") {
-      steps 
+      steps
     }
   }
 }
-a
-abc
