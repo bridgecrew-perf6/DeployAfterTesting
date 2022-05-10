@@ -7,6 +7,7 @@ pipeline {
   stages {
     stage("Echo") {
       steps {
+        sh "git log"
         echo "${COMMIT_HASH}"
       }
     }
